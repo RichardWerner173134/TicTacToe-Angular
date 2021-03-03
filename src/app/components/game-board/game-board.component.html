@@ -1,0 +1,19 @@
+<div class='board' >
+    <app-field 
+        *ngFor='let element of elements; let i = index'
+        [value]="element"
+        (click)="playerMove(i)">
+    </app-field>
+</div>
+<h3 *ngIf="!winner">Current player: {{ player }}</h3>
+<div *ngIf="winner">
+    <div>
+        <p *ngIf="winner != 'D'">
+            {{ winner }} won the Game.
+        </p>
+        <p *ngIf="winner == 'D'">
+            Draw.
+        </p>
+        <button (click)="startGame()">Restart Game</button>
+    </div>
+</div>
